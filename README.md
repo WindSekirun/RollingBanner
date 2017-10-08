@@ -1,4 +1,5 @@
 # RollingBanner
+[![](https://jitpack.io/v/WindSekirun/RollingBanner.svg)](https://jitpack.io/#WindSekirun/RollingBanner) [![Kotlin](https://img.shields.io/badge/kotlin-1.1.4-blue.svg)]
 Infinity RollingBanner with very little code and Indicator, Writen in [Kotlin](https://kotlinlang.org)
 
 ![](https://github.com/WindSekirun/RollingBanner/blob/master/sample.gif)
