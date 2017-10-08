@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="pyxis.uzuki.live.rollingbannersample.MainActivity">
+
+    <pyxis.uzuki.live.rollingbanner.RollingBanner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:bottomMargin="@dimen/default_bottom_margin"
+        app:enableIndicator="true"
+        app:enableRolling="true"
+        app:flingAble="true"
+        app:indicatorMargin="@dimen/default_indicator_margin"
+        app:rollingDelay="3000"
+        app:scrollingDelay="250"
+        app:smoothScroll="true" />
+
+</LinearLayout>
