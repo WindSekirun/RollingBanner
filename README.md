@@ -5,6 +5,8 @@ Infinity RollingBanner with very little code and Indicator, Writen in [Kotlin](h
 
 ![](https://github.com/WindSekirun/RollingBanner/blob/master/sample.gif)
 
+[구현 방법에 대한 설명은 개인 블로그인 PyxisPub 에서 볼 수 있습니다.](https://blog.uzuki.live/android-rollingbanner-롤링-배너/)
+
 ## Usages
 
 ### Add dependency
