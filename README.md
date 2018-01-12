@@ -32,6 +32,7 @@ app/build.gradle
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+	app:indicatorRes="@drawable/default_indicator"
         app:bottomMargin="@dimen/default_bottom_margin"
         app:enableIndicator="true"
         app:enableRolling="true"
