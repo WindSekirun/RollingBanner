@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position) {
+        public View getView(int position, String item) {
             View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main_pager, null, false);
             FrameLayout container = view.findViewById(R.id.container);
             TextView txtText = view.findViewById(R.id.txtText);
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
             int index = getItemList().indexOf(txt);
             txtText.setText(txt);
             container.setBackgroundColor(colorRes[index]);
+
+            view.setOnClickListener(v ->
+                    Toast.makeText(MainActivity.this, String.format("clicked %s", txt), Toast.LENGTH_SHORT).show());
             return view;
         }
     }

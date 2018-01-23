@@ -21,7 +21,7 @@ abstract class RollingViewPagerAdapter<T>(val itemList: ArrayList<T>) : PagerAda
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any? {
         return if (!this.itemList.isEmpty()) {
-            val v = this.getView(getRealPosition(position))
+            val v = this.getView(getRealPosition(position), getItem(getRealPosition(position)))
             container.addView(v)
             v
         } else {
@@ -49,7 +49,5 @@ abstract class RollingViewPagerAdapter<T>(val itemList: ArrayList<T>) : PagerAda
      */
     fun getRealPosition(page: Int) = page % realCount
 
-    abstract fun getView(var1: Int): View
-
-
+    abstract fun getView(var1: Int, item: T): View
 }

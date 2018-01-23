@@ -23,7 +23,7 @@ allprojects {
 
 app/build.gradle
 ````
- implementation 'com.github.WindSekirun:RollingBanner:1.0.0'
+ implementation 'com.github.WindSekirun:RollingBanner:1.0.1'
 ````
 
 ### Coding
@@ -66,6 +66,9 @@ rollingBanner.setAdapter(adapter);
             int index = getItemList().indexOf(txt);
             txtText.setText(txt);
             container.setBackgroundColor(colorRes[index]);
+
+            view.setOnClickListener(v ->
+                                Toast.makeText(MainActivity.this, String.format("clicked %s", txt), Toast.LENGTH_SHORT).show());
             return view;
         }
     }
