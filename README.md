@@ -57,7 +57,7 @@ rollingBanner.setAdapter(adapter);
         }
 
         @Override
-        public View getView(int position) {
+        public View getView(int position, String item) {
             View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main_pager, null, false);
             FrameLayout container = view.findViewById(R.id.container);
             TextView txtText = view.findViewById(R.id.txtText);
