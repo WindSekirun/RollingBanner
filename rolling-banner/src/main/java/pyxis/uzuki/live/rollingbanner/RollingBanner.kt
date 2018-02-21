@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.rolling_banner.view.*
 
 @Suppress("MemberVisibilityCanPrivate")
 class RollingBanner constructor(context: Context, val attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
+    private var enableLooping = true
+
     init {
         initView()
     }
@@ -23,7 +25,7 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
 
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RollingBanner)
         val indicatorRes = typedArray.getResourceId(R.styleable.RollingBanner_indicatorRes, R.drawable.default_indicator)
-        val enableRolling = typedArray.getBoolean(R.styleable.RollingBanner_enableRolling, false)
+        var enableRolling = typedArray.getBoolean(R.styleable.RollingBanner_enableRolling, false)
         val flingAble = typedArray.getBoolean(R.styleable.RollingBanner_flingAble, true)
         val smoothScroll = typedArray.getBoolean(R.styleable.RollingBanner_smoothScroll, true)
         val rollingDelay = typedArray.getInt(R.styleable.RollingBanner_rollingDelay, 3000)
@@ -31,6 +33,11 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
         val enableIndicator = typedArray.getBoolean(R.styleable.RollingBanner_enableIndicator, true)
         val indicatorMargin = typedArray.getDimensionPixelSize(R.styleable.RollingBanner_indicatorMargin, resources.getDimensionPixelSize(R.dimen.default_indicator_margin))
         val bottomMargin = typedArray.getDimensionPixelSize(R.styleable.RollingBanner_bottomMargin, resources.getDimensionPixelSize(R.dimen.default_bottom_margin))
+        enableLooping = typedArray.getBoolean(R.styleable.RollingBanner_enableLooping, true)
+
+        if (!enableLooping) {
+            enableRolling = false
+        }
 
         setIndicatorResources(indicatorRes, indicatorMargin)
         setEnableRolling(enableRolling)
@@ -96,12 +103,24 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
     }
 
     /**
+     * set enabled state of looping feature
+     * warning, you need call this methods before call [setAdapter]
+     *
+     * @param[enable] true - enable looping feature, default is true.
+     */
+    fun setEnableLooping(enable: Boolean) {
+        enableLooping = enable
+    }
+
+    /**
      * set Adapter of ViewPager
      * Adapter will extend RollingViewPagerAdapter
      *
      * @param [adapter] adapter object
      */
     fun <T> setAdapter(adapter: RollingViewPagerAdapter<T>) {
+        adapter.enableLooping(enableLooping)
+
         viewPager.adapter = adapter
         viewPager.notifyDataSetChanged()
 

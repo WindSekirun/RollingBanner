@@ -23,7 +23,7 @@ allprojects {
 
 app/build.gradle
 ````
- implementation 'com.github.WindSekirun:RollingBanner:1.0.1'
+ implementation 'com.github.WindSekirun:RollingBanner:1.0.5'
 ````
 
 ### Coding
@@ -32,7 +32,8 @@ app/build.gradle
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-	app:indicatorRes="@drawable/default_indicator"
+	    app:indicatorRes="@drawable/default_indicator"
+	    app:enableLooping="true"
         app:bottomMargin="@dimen/default_bottom_margin"
         app:enableIndicator="true"
         app:enableRolling="true"

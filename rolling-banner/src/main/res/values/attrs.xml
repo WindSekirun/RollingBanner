@@ -7,9 +7,10 @@
         <attr name="smoothScroll" format="boolean" />
         <attr name="rollingDelay" format="integer" />
         <attr name="scrollingDelay" format="integer" />
-        <attr name="enableIndicator" format="boolean"/>
-        <attr name="indicatorMargin" format="dimension"/>
-        <attr name="bottomMargin" format="dimension"/>
+        <attr name="enableIndicator" format="boolean" />
+        <attr name="indicatorMargin" format="dimension" />
+        <attr name="bottomMargin" format="dimension" />
+        <attr name="enableLooping" format="boolean" />
     </declare-styleable>
 
     <dimen name="default_indicator_margin">5dp</dimen>

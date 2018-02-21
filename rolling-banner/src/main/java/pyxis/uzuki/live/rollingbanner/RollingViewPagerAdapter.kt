@@ -11,7 +11,8 @@ import java.util.*
  * Created by pyxis on 2017. 10. 9..
  */
 abstract class RollingViewPagerAdapter<T>(val itemList: ArrayList<T>) : PagerAdapter() {
-    private val placeHolderCount = 100000
+    private var placeHolderCount = 100000
+    private var lastEnableLooping = true
     val realCount: Int
         get() = this.itemList.size
 
@@ -42,6 +43,15 @@ abstract class RollingViewPagerAdapter<T>(val itemList: ArrayList<T>) : PagerAda
      */
     fun getItem(position: Int): T {
         return this.itemList[position]
+    }
+
+    fun enableLooping(enabled: Boolean) {
+        lastEnableLooping = enabled
+        placeHolderCount = if (enabled) {
+            100000
+        } else {
+            1
+        }
     }
 
     /**
