@@ -52,6 +52,11 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
     }
 
     /**
+     * getting [ViewPager] object
+     */
+    fun getViewPager() = viewPager
+
+    /**
      * set Indicator resource property
      * @param [resId] resource id to show as indicator
      * @param [margin] margin of each indicator
