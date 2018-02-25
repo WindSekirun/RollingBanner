@@ -18,6 +18,7 @@ class RollingViewPagerIndicator constructor(context: Context, attrs: AttributeSe
     private lateinit var viewPager: ViewPager
     private val adapter: RollingViewPagerAdapter<*>
         get() = viewPager.adapter as RollingViewPagerAdapter<*>
+    private var hideIndicator = false
 
     fun setIndicatorResource(resId: Int, margin: Int) {
         this.margin = margin
@@ -49,9 +50,15 @@ class RollingViewPagerIndicator constructor(context: Context, attrs: AttributeSe
         }
     }
 
+    fun setHideIndicator(hideIndicator: Boolean) {
+        this.hideIndicator = hideIndicator
+    }
 
     fun notifyDataSetChanged() {
         removeAllViews()
+
+        if (hideIndicator) return;
+
         if (adapter.realCount < 2) {
             visibility = View.GONE
         } else {

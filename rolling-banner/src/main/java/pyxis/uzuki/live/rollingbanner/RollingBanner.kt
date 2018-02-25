@@ -2,7 +2,6 @@ package pyxis.uzuki.live.rollingbanner
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
 import android.widget.FrameLayout
 import kotlinx.android.synthetic.main.rolling_banner.view.*
 
@@ -15,6 +14,7 @@ import kotlinx.android.synthetic.main.rolling_banner.view.*
 @Suppress("MemberVisibilityCanPrivate")
 class RollingBanner constructor(context: Context, val attrs: AttributeSet? = null) : FrameLayout(context, attrs) {
     private var enableLooping = true
+    private var enableIndicator = true
 
     init {
         initView()
@@ -30,7 +30,7 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
         val smoothScroll = typedArray.getBoolean(R.styleable.RollingBanner_smoothScroll, true)
         val rollingDelay = typedArray.getInt(R.styleable.RollingBanner_rollingDelay, 3000)
         val scrollingDelay = typedArray.getInt(R.styleable.RollingBanner_scrollingDelay, 250)
-        val enableIndicator = typedArray.getBoolean(R.styleable.RollingBanner_enableIndicator, true)
+        enableIndicator = typedArray.getBoolean(R.styleable.RollingBanner_enableIndicator, true)
         val indicatorMargin = typedArray.getDimensionPixelSize(R.styleable.RollingBanner_indicatorMargin, resources.getDimensionPixelSize(R.dimen.default_indicator_margin))
         val bottomMargin = typedArray.getDimensionPixelSize(R.styleable.RollingBanner_bottomMargin, resources.getDimensionPixelSize(R.dimen.default_bottom_margin))
         enableLooping = typedArray.getBoolean(R.styleable.RollingBanner_enableLooping, true)
@@ -45,7 +45,6 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
         setSmoothScroll(smoothScroll)
         setRollingDelay(rollingDelay)
         setScrollingDelay(scrollingDelay)
-        setEnableIndicator(enableIndicator)
         setBottomMargin(bottomMargin)
 
         typedArray.recycle()
@@ -130,6 +129,7 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
         viewPager.notifyDataSetChanged()
 
         indicator.setViewPager(viewPager)
+        indicator.setHideIndicator(!enableIndicator)
         indicator.notifyDataSetChanged()
     }
 
@@ -138,7 +138,7 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
      * @param[enable] true - VISIBLE
      */
     fun setEnableIndicator(enable: Boolean) {
-        indicator.visibility = if (enable) View.VISIBLE else View.GONE
+        enableIndicator = enable
     }
 
     /**
