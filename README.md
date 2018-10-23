@@ -23,7 +23,7 @@ allprojects {
 
 app/build.gradle
 ````
- implementation 'com.github.WindSekirun:RollingBanner:1.0.5'
+ implementation 'com.github.WindSekirun:RollingBanner:1.0.7'
 ````
 
 ### Coding
