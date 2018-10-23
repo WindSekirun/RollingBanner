@@ -1,5 +1,6 @@
 package pyxis.uzuki.live.rollingbanner
 
+import android.content.Context
 import android.support.v4.view.PagerAdapter
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import java.util.*
  * class: RollingViewPagerAdapter
  * Created by pyxis on 2017. 10. 9..
  */
-abstract class RollingViewPagerAdapter<T>(val itemList: ArrayList<T>) : PagerAdapter() {
+abstract class RollingViewPagerAdapter<T>(val context: Context, val itemList: ArrayList<T>) : PagerAdapter() {
     private var placeHolderCount = 100000
     private var lastEnableLooping = true
     val realCount: Int
@@ -20,13 +21,14 @@ abstract class RollingViewPagerAdapter<T>(val itemList: ArrayList<T>) : PagerAda
         return itemList.size * placeHolderCount
     }
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any? {
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
         return if (!this.itemList.isEmpty()) {
             val v = this.getView(getRealPosition(position), getItem(getRealPosition(position)))
             container.addView(v)
             v
         } else {
-            null
+            val v = View(context)
+            v
         }
     }
 

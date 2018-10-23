@@ -1,5 +1,6 @@
 package pyxis.uzuki.live.rollingbannersample;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -27,14 +28,14 @@ public class MainActivity extends AppCompatActivity {
 
         rollingBanner = findViewById(R.id.banner);
 
-        SampleAdapter adapter = new SampleAdapter(new ArrayList<>(Arrays.asList(txtRes)));
+        SampleAdapter adapter = new SampleAdapter(this, new ArrayList<>(Arrays.asList(txtRes)));
         rollingBanner.setAdapter(adapter);
     }
 
     public class SampleAdapter extends RollingViewPagerAdapter<String> {
 
-        public SampleAdapter(ArrayList<String> itemList) {
-            super(itemList);
+        public SampleAdapter(Context context, ArrayList<String> itemList) {
+            super(context, itemList);
         }
 
         @Override

@@ -46,15 +46,15 @@ app/build.gradle
 
 ````Java
 RollingBanner rollingBanner = findViewById(R.id.banner);
-SampleAdapter adapter = new SampleAdapter(new ArrayList<>(Arrays.asList(txtRes)));
+SampleAdapter adapter = new SampleAdapter(this, new ArrayList<>(Arrays.asList(txtRes)));
 rollingBanner.setAdapter(adapter);
 ````
 
 ````Java
  public class SampleAdapter extends RollingViewPagerAdapter<String> {
 
-        public SampleAdapter(ArrayList<String> itemList) {
-            super(itemList);
+        public SampleAdapter(Context context, ArrayList<String> itemList) {
+            super(context, itemList);
         }
 
         @Override

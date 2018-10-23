@@ -70,7 +70,7 @@ class RollingViewPager constructor(context: Context, attrs: AttributeSet? = null
     }
 
     internal fun notifyDataSetChanged() {
-        adapter.notifyDataSetChanged()
+        adapter?.notifyDataSetChanged()
         enableRolling(lastEnableRolling)
     }
 
