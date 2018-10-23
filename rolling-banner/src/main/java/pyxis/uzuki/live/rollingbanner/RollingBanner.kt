@@ -151,4 +151,21 @@ class RollingBanner constructor(context: Context, val attrs: AttributeSet? = nul
         indicator.layoutParams = params
     }
 
+    /**
+     * move to prev pages
+     */
+    @JvmOverloads
+    fun movePrevPage(animate: Boolean = true) {
+        if (viewPager.currentItem == 0) return
+        viewPager.setCurrentItem(viewPager.currentItem - 1, animate)
+    }
+
+    /**
+     * move to next pages
+     */
+    @JvmOverloads
+    fun moveNextPage(animate: Boolean = true) {
+        if (viewPager.currentItem == viewPager.adapter.count - 1) return
+        viewPager.setCurrentItem(viewPager.currentItem + 1, animate)
+    }
 }

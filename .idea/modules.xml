@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/RollingBanner.iml" filepath="$PROJECT_DIR$/.idea/RollingBanner.iml" />
-      <module fileurl="file://C:\Users\winds\richware\RollingBanner\RollingBanner\RollingBanner.iml" filepath="C:\Users\winds\richware\RollingBanner\RollingBanner\RollingBanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RollingBanner.iml" filepath="$PROJECT_DIR$/RollingBanner.iml" />
       <module fileurl="file://$PROJECT_DIR$/rolling-banner/rolling-banner.iml" filepath="$PROJECT_DIR$/rolling-banner/rolling-banner.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample/sample.iml" filepath="$PROJECT_DIR$/sample/sample.iml" />
     </modules>
