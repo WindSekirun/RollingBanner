@@ -2,7 +2,7 @@ package pyxis.uzuki.live.rollingbanner
 
 import android.content.Context
 import android.os.Handler
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.animation.DecelerateInterpolator
@@ -14,7 +14,7 @@ import pyxis.uzuki.live.richutilskt.utils.tryCatch
  * class: RollingViewPager
  * Created by pyxis on 2017. 10. 9..
  */
-class RollingViewPager constructor(context: Context, attrs: AttributeSet? = null) : ViewPager(context, attrs) {
+class RollingViewPager constructor(context: Context, attrs: AttributeSet? = null) : androidx.viewpager.widget.ViewPager(context, attrs) {
     private var flingAble = true
     private var smoothScroll = true
     private var scrollHandler: Handler = Handler()
@@ -49,7 +49,7 @@ class RollingViewPager constructor(context: Context, attrs: AttributeSet? = null
 
     internal fun setScrollingDelay(millis: Int) {
         tryCatch {
-            val viewpager = ViewPager::class.java
+            val viewpager = androidx.viewpager.widget.ViewPager::class.java
             val scroller = viewpager.getDeclaredField("mScroller")
             scroller.isAccessible = true
             scroller.set(this, DelayScroller(context, millis))

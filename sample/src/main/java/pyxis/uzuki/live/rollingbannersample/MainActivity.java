@@ -2,7 +2,6 @@ package pyxis.uzuki.live.rollingbannersample;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -12,6 +11,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import androidx.appcompat.app.AppCompatActivity;
 import pyxis.uzuki.live.rollingbanner.RollingBanner;
 import pyxis.uzuki.live.rollingbanner.RollingViewPagerAdapter;
 

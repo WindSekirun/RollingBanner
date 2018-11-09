@@ -1,7 +1,6 @@
 package pyxis.uzuki.live.rollingbanner
 
 import android.content.Context
-import android.support.v4.view.ViewPager
 import android.util.AttributeSet
 import android.view.View
 import android.widget.ImageView
@@ -15,7 +14,7 @@ import android.widget.LinearLayout
 class RollingViewPagerIndicator constructor(context: Context, attrs: AttributeSet? = null) : LinearLayout(context, attrs) {
     private var margin = 10
     private var resId = View.NO_ID
-    private lateinit var viewPager: ViewPager
+    private lateinit var viewPager: androidx.viewpager.widget.ViewPager
     private val adapter: RollingViewPagerAdapter<*>
         get() = viewPager.adapter as RollingViewPagerAdapter<*>
     private var hideIndicator = false
@@ -25,10 +24,10 @@ class RollingViewPagerIndicator constructor(context: Context, attrs: AttributeSe
         this.resId = resId
     }
 
-    fun setViewPager(viewPager: ViewPager) {
+    fun setViewPager(viewPager: androidx.viewpager.widget.ViewPager) {
         this.viewPager = viewPager
 
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        viewPager.addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
 
             }
