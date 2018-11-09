@@ -22,8 +22,12 @@ allprojects {
 ````
 
 app/build.gradle
-````
- implementation 'com.github.WindSekirun:RollingBanner:1.0.7'
+```` 
+// androidx + API 28
+implementation 'com.github.WindSekirun:RollingBanner:1.0.7-androidx'
+
+// support library
+implementation 'com.github.WindSekirun:RollingBanner:1.0.7'
 ````
 
 ### Coding
